@@ -273,14 +273,14 @@ let directionIndex = 0
 // timer
 // =====================
 
-let timeLeft = 3
+let timeLeft = 20
 let timerInterval = null
 
 function startTimer(){
 
 clearInterval(timerInterval)
 
-timeLeft = 3
+timeLeft = 20
 document.getElementById("timer").innerText = "เวลา: "+timeLeft
 
 timerInterval = setInterval(()=>{
@@ -435,5 +435,6 @@ nextRound()
 stopVisionTest()
 
 }
+
 
 }
