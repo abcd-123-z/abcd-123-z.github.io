@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>สมัครสมาชิก</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.container{
+
+background:white;
+padding:40px;
+border-radius:12px;
+width:320px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+
+}
+
+input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+
+border-radius:8px;
+border:1px solid #ccc;
+
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+padding:12px;
+
+background:#2196F3;
+color:white;
+
+border:none;
+border-radius:8px;
+
+font-size:16px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#1976D2;
+
+}
+
+a{
+
+text-decoration:none;
+color:#2196F3;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>สมัครสมาชิก</h2>
+
+<input id="email" placeholder="อีเมล">
+
+<input id="password" type="password" placeholder="รหัสผ่าน">
+
+<button onclick="signup()">สมัครสมาชิก</button>
+
+<p><a href="login.html">กลับไปหน้าเข้าสู่ระบบ</a></p>
+
+</div>
+
+<script>
+
+function signup(){
+
+let email=document.getElementById("email").value
+let password=document.getElementById("password").value
+
+localStorage.setItem("email",email)
+localStorage.setItem("password",password)
+
+alert("สมัครสมาชิกสำเร็จ!")
+
+window.location.href="login.html"
+
+}
+
+</script>
+
+</body>
+</html>

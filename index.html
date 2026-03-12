@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<title>AI Eye Screening</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f5f7fb;
+text-align:center;
+}
+
+header{
+background:linear-gradient(90deg,#4facfe,#00f2fe);
+color:white;
+padding:18px;
+font-size:22px;
+position:relative;
+}
+
+#logoutBtn{
+position:absolute;
+right:20px;
+top:15px;
+background:#ff4d4d;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.container{
+margin-top:30px;
+background:white;
+width:750px;
+margin:auto;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+button{
+padding:10px 16px;
+margin:8px;
+border:none;
+border-radius:6px;
+background:#4CAF50;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#43a047;
+}
+
+.camera-box{
+position:relative;
+width:640px;
+margin:auto;
+}
+
+#canvas{
+position:absolute;
+left:0;
+top:0;
+}
+
+#testCanvas{
+margin-top:20px;
+border:3px solid black;
+background:white;
+}
+
+#distanceStatus{
+font-size:18px;
+margin:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+AI Eye Screening System
+<button id="logoutBtn" onclick="logout()">ออกจากระบบ</button>
+
+</header>
+
+<div class="container">
+
+<h2>ระบบตรวจสุขภาพสายตา</h2>
+
+<button onclick="startSystem()">เปิดกล้อง</button>
+<button onclick="stopSystem()">หยุดระบบ</button>
+
+<br>
+
+<div id="distanceStatus">ยังไม่ได้ตรวจระยะ</div>
+
+<button id="startTestBtn" onclick="startVisionTest()" disabled>
+เริ่มการทดสอบสายตา
+</button>
+
+<br><br>
+
+<div class="camera-box">
+
+<video id="video" width="640" height="480" autoplay></video>
+<canvas id="canvas" width="640" height="480"></canvas>
+
+</div>
+
+<h2>การทดสอบสายตา</h2>
+
+<div id="timer">เวลา: 20 วินาที</div>
+
+<canvas id="testCanvas" width="400" height="400"></canvas>
+
+<br>
+
+<button onclick="answer(5)">↖</button>
+<button onclick="answer(6)">↑</button>
+<button onclick="answer(7)">↗</button>
+
+<br>
+
+<button onclick="answer(4)">←</button>
+<button onclick="answer(0)">→</button>
+
+<br>
+
+<button onclick="answer(3)">↙</button>
+<button onclick="answer(2)">↓</button>
+<button onclick="answer(1)">↘</button>
+
+</div>
+
+<script>
+
+if(localStorage.getItem("loggedIn")!=="true"){
+window.location.href="login.html"
+}
+
+function logout(){
+localStorage.removeItem("loggedIn")
+window.location.href="login.html"
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
