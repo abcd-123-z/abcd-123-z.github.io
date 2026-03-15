@@ -159,7 +159,7 @@ canvasCtx.font="20px Arial"
 canvasCtx.fillStyle="lime"
 canvasCtx.fillText("Distance: "+dist.toFixed(1)+" cm",20,30)
 
-if(dist < 45){
+if(dist < 100){
 
 distanceStatus.innerText="คุณอยู่ใกล้เกินไป กรุณาถอยหลัง"
 distanceStatus.style.color="red"
@@ -167,7 +167,7 @@ cancelDistanceLock()
 
 }
 
-else if(dist > 50){
+else if(dist > 120){
 
 distanceStatus.innerText="คุณอยู่ไกลเกินไป กรุณาขยับเข้ามา"
 distanceStatus.style.color="red"
